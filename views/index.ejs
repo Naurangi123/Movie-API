@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Movie Search</title>
+</head>
+<body>
+    <div class="buttons">
+        <form action="/search" method="POST">
+            <input type="text" name="searchQuery" placeholder="Search movies...">
+            <button type="submit">Search</button>
+        </form>
+        <form action="/searchByTitle" method="POST">
+            <input type="text" name="title" placeholder="Search movie by title...">
+            <button type="submit">Search</button>
+        </form>
+    </div>
+
+    <% if (error) { %>
+        <div class="error">
+            <p><%= error %></p>
+        </div>
+    <% } %>
+        <div class="movie-item">
+            <% if (movies.length > 0) { %>
+                <ul>
+                    <% movies.forEach(movie => { %>
+                        <li>
+                            <% if (movie.Poster) { %>
+                                <div>
+                                    <img src="<%= movie.Poster %>" alt="<%= movie.Title %>">
+                                </div>
+                            <% } %>
+                            <h3><%= movie.Title %></h3>
+                            <p>Year:<%= movie.Year %></p>
+                        </li>
+                    <% }); %>
+                </ul>
+            <% } %>
+        </div>
+        <% if (movie) { %>
+            <div class="movie-item-2">
+                <img src="<%= movie.Poster %>" alt="<%= movie.Title %>">
+                <hr>
+                <h3><%= movie.Title %></h3>
+                <hr>
+                <div class="details">
+                    <p>Year: <%= movie.Year %></p>
+                    <p>Rated: <%= movie.Rated %></p>
+                    <p>Released: <%= movie.Released %></p>
+                    <p>Runtime: <%= movie.Runtime %></p>
+                    <p>Genre: <%= movie.Genre %></p>
+                    <p>Director: <%= movie.Director %></p>
+                    <p>Writer: <%= movie.Writer %></p>
+                    <p>Actors: <%= movie.Actors %></p>
+                    <p>Plot: <%= movie.Plot %></p>
+                    <p>Language: <%= movie.Language %></p>
+                    <p>Country: <%= movie.Country %></p>
+                    <p>Awards: <%= movie.Awards %></p>
+                </div>
+            </div>
+        <% } %>
+</body>
+</html>

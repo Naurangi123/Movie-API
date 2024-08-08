@@ -20,33 +20,33 @@
 
     <% if (error) { %>
         <div class="error">
-            <p><%= error %></p>
+            <p><%= error.message %></p>
         </div>
     <% } %>
         <div class="movie-item">
             <% if (movies.length > 0) { %>
-                <ul>
-                    <% movies.forEach(movie => { %>
-                        <li>
-                            <% if (movie.Poster) { %>
-                                <div>
-                                    <img src="<%= movie.Poster %>" alt="<%= movie.Title %>">
-                                </div>
-                            <% } %>
-                            <h3><%= movie.Title %></h3>
-                            <p>Year:<%= movie.Year %></p>
-                        </li>
-                    <% }); %>
-                </ul>
+                <% movies.forEach(movie => { %>
+                    <div class="movie">
+                        <% if (movie.Poster) { %>
+                            <div>
+                                <img src="<%= movie.Poster %>" alt="<%= movie.Title %>">
+                            </div>
+                        <% } %>
+                        <hr>
+                        <h3><%= movie.Title %></h3>
+                        <p>Year:<%= movie.Year %></p>
+                    </div>
+                <% }); %>
             <% } %>
         </div>
         <% if (movie) { %>
-            <div class="movie-item-2">
-                <img src="<%= movie.Poster %>" alt="<%= movie.Title %>">
-                <hr>
-                <h3><%= movie.Title %></h3>
-                <hr>
-                <div class="details">
+            <div class="movie-title">
+                <div class="movie-image">
+                    <img src="<%= movie.Poster %>" alt="<%= movie.Title %>">
+                </div>
+                <div class="movie-info">
+                    <h3><%= movie.Title %></h3>
+                    <hr>
                     <p>Year: <%= movie.Year %></p>
                     <p>Rated: <%= movie.Rated %></p>
                     <p>Released: <%= movie.Released %></p>

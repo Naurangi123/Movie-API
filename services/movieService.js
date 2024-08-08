@@ -7,7 +7,6 @@ module.exports.fetchMovies = async (searchQuery) => {
         }
         const response = await fetch(`${apiUrl}?s=${searchQuery}&apikey=${apiKey}`);
         const data = await response.json();
-        console.log('Response data:', data);
 
         if (data.Response === 'True') {
             return data.Search;
@@ -15,7 +14,6 @@ module.exports.fetchMovies = async (searchQuery) => {
             throw new Error('Error fetching movies: ' + data.Error);
         }
     } catch (error) {
-        console.error('Error:', error);
         throw new Error('Error fetching movies');
     }
 };
@@ -28,7 +26,6 @@ module.exports.fetchMovieByTitle = async (title) => {
         const response = await fetch(`${apiUrl}?t=${title}&apikey=${apiKey}`);
         const data = await response.json();
 
-        console.log('Response data:', data);
 
         if (data.Response === 'True') {
             return data;
@@ -36,7 +33,6 @@ module.exports.fetchMovieByTitle = async (title) => {
             throw new Error('Error fetching movie details: ' + data.Error);
         }
     } catch (error) {
-        console.error('Error:', error);
         throw new Error('Error fetching movie details');
     }
 };

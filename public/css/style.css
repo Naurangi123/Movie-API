@@ -15,9 +15,6 @@ body {
     padding-bottom: 0.5rem;
     margin-top: 3rem;
 }
-img {
-    max-width: 100%; 
-}
 h1 {
     text-align: center;
     margin-top: 20px;
@@ -50,21 +47,44 @@ form button:hover {
     background-color: #0056b3;
 }
 
-
-.movie-item img {
+.movie-item{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    position: absolute;
+    gap: 19px;
+    margin: 10px;
+}
+.movie{
+    width: 14.5rem;
+    height:30rem;
+    border: 1px solid #2d1313;
+    border-radius: 5px;
+}
+.movie img {
     max-width: 100%;
     height: auto;
 }
 
-.details {
+.movie-title {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    text-align: center;
-    margin-top: 10px;
+    margin: 10px;
+    border: 2px solid rgb(11, 3, 34);
+
 }
 
-.details p {
-    margin: 5px 0;
+.movie-image{
+    width: 40%;
+    height: auto;
+    margin-left: 1rem;
+}
+.movie-info{
+    margin: auto;
+    height: 32rem;
+}
+hr{
+    width: 50%;
 }
 
